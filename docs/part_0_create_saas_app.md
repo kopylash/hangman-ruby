@@ -11,7 +11,7 @@ Sinatra framework, version it properly, and deploy it to Heroku.
 Creating and versioning a simple SaaS app
 -----------------------------------------
 
-SaaS apps are developed on your computer (or cloud-based IDE) but *deployed to production* on
+SaaS apps are developed on your computer but *deployed to production* on
 a server that others can access.  We try to minimize the differences
 between the development and production *environments*, to avoid
 difficult-to-diagnose problems in which something works one way on your
@@ -235,9 +235,7 @@ end
 Any gem specifications inside the `group :development` block will only be examined if bundle is run in the development environment. (The other environments you can specify are :test and :production, and you can define new environments yourself.) Gem specifications outside of any group block are assumed to apply in all environments.
 
 Say `rerun -- rackup` in the terminal window to start
-your app and verify the app is running. Note that you need to put
-everything except `rerun` in quotes in order to make the command
-unambiguous in Cloud9. Now any detected changes will cause the server to
+your app and verify the app is running. Now any detected changes will cause the server to
 restart automatically, similar to the use of `guard` to run specs.
 
 Modify `app.rb` to print a different message, and verify that the change is detected by rerun by again refreshing your browser tab with the running app.
