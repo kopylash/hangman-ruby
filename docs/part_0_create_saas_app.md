@@ -70,6 +70,9 @@ sure the correct gems (and, where specified, the correct versions) are
 available, and tries to install them otherwise.  This will create a new
 file `Gemfile.lock`, *which you should place under version control.*
 
+If the command `bundle` is not installed in your computer, you would
+need to run the command `gem install bundle` to fix the problem.
+
 To place under version control, use these commands:
 
 ```sh
