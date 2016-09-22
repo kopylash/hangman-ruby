@@ -126,7 +126,7 @@ The create-new-game code in the Sinatra app should do the following:
 
 View how these steps are actualized in the app.rb file under the `post /create do` route.
 
-At that point, stage and commit all files locally on Cloud9, then `git push heroku master` to deploy to Heroku again and manually verify this improved behavior.
+At that point, stage and commit all files locally, then `git push heroku master` to deploy to Heroku again and manually verify this improved behavior.
 
 #### Self Check Question
 
