@@ -248,7 +248,7 @@ You will need to install the Heroku Toolbelt. Go to `https://devcenter.heroku.co
 
 Next, you must log in to your Heroku account by typing the command `heroku login`. This will connect your workspace to your Heroku account.
 
-While in the root directory of your project (not your whole workspace), type `heroku create` to create a new project in Heroku. This will tell the Heroku service to prepare for some incoming code, and locally on Cloud9, it will add a remote git repository for you called `heroku`.
+While in the root directory of your project (not your whole workspace), type `heroku create` to create a new project in Heroku. This will tell the Heroku service to prepare for some incoming code, and it will add a remote git repository for you called `heroku`.
 
 Next, make sure you stage and commit all changes locally as instructed above (i.e. `git add`, `git commit`, etc).
 
