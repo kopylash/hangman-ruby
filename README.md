@@ -19,10 +19,8 @@ After completing this assignment, you will be able to:
 Prerequisites
 -------------
 * You should be familiar with Ruby basics, for example by completing the Ruby Intro or Ruby Calisthenics assignment.
-* You should have read [ESaaS](http://www.saasbook.info) Chapter 2, "The Architecture of SaaS Applications", and watched the accompanying videos in the [MOOC](http://www.saas-class.org).
-* You should be comfortable with basic Git usage and how to push your code to GitHub, as described in
-Appendix A of [ESaaS](http://www.saasbook.info).
-* You will need "survival level" Unix command-line skills and facility with an editor to edit code files, such as the built-in editor in the Cloud9 IDE.
+* You should have watched the videos corresponding to first and second weeks our the [SPOC](http://www.saas-class.org).
+* You should be comfortable with basic Git usage and how to push your code to a Git repository (e.g. Bitbucket or GitHub).
 
 Introduction
 ------------
