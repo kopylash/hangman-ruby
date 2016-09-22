@@ -116,7 +116,7 @@ dependencies.</blockquote></p>
 Create a simple SaaS app with Sinatra
 -------------------------------------
 
-As Chapter 2 of ESaaS explains, SaaS apps
+As explained in the lectures, SaaS apps
 require a web server to receive HTTP requests from the outside world,
 and an application server that "connects" your app's logic to the web
 server.  For development, we will use `webrick`, a very simple
@@ -125,7 +125,7 @@ fine for development.  In both development and production, we will use
 the `rack` Ruby-based application server, which supports Ruby apps
 written in various frameworks including Sinatra and Rails.
 
-As Chapter 2 of *ESaaS* explains, a SaaS app essentially recognizes and
+As explained in the lectures, a SaaS app essentially recognizes and
 responds to HTTP requests corresponding to the application's *routes*
 (recall that a route consists of an HTTP method such as `GET` or `POST`
 plus a URI).  Sinatra provides an extremely lightweight shorthand for
@@ -172,30 +172,30 @@ require './app'
 run MyApp
 ```
 
-
 The first line tells Rack that our app lives in the file `app.rb`, which
 you created above to hold your app's code.  We have to explicitly state
 that our `app` file is located in the current directory (.) because
 `require` normally looks only in standard system directories to find
 gems.
 
-If you're using Cloud9, you're now ready to test-drive our simple app with this command line:
+By now, we are ready to test-drive our simple app with this command line:
 
 ```sh
-$ rackup -p $PORT -o $IP
+$ rackup
 ```
 
 This command starts the Rack appserver and the WEBrick webserver.  Rack
 will look for `config.ru` and attempt to start our app based on the
-information there.  If you're using Cloud9, you will see a small popup in the terminal with a URL to your running webapp. It will open in a new tab in the IDE if you click on it, but you should open up a fresh browser tab and paste in that URL.
-
-Point a new Web browser tab at the running app's URL and verify that you can see "Hello World".
+information there. After a few information lines, you will see one
+notifying that the webserver is ready, listening at port `9292`. Open
+a Web browser tab at `http://localhost:9292/` and verify there if you
+can see a "Hello World" message.
 
 #### Self Check Question
 
 <details>
   <summary>What happens if you try to visit a non-root URL such as
-`https://workspace-username.c9.io/hello` and why? (your URL root will vary)</summary>
+`http://localhost:9292/hello` and why? (your URL root will vary)</summary>
   <p><blockquote> You'll get a humorous error message from the Sinatra framework, since
 you don't have a route matching `get '/hello'` in your app.  Since
 Sinatra is a SaaS framework, the error message is packaged up in a Web
@@ -218,7 +218,7 @@ Save your changes to `app.rb` and try refreshing your browser tab where the app 
 No changes? Confused?
 
 Now go back to the shell window where you ran `rackup`
-and press Ctrl-C to stop Rack.  Then type `rackup -p $PORT -o $IP` again (for Cloud9), and once it is running, go back to
+and press Ctrl-C to stop Rack.  Then type `rackup` again, and once it is running, go back to
 your browser tab with your app and refresh the page.  This time it should work.
 
 What this shows you is that if you modify your app while it's running,
@@ -234,7 +234,7 @@ end
 
 Any gem specifications inside the `group :development` block will only be examined if bundle is run in the development environment. (The other environments you can specify are :test and :production, and you can define new environments yourself.) Gem specifications outside of any group block are assumed to apply in all environments.
 
-Say `rerun -- rackup -p $PORT -o $IP` in the terminal window to start
+Say `rerun -- rackup` in the terminal window to start
 your app and verify the app is running. Note that you need to put
 everything except `rerun` in quotes in order to make the command
 unambiguous in Cloud9. Now any detected changes will cause the server to
@@ -244,15 +244,11 @@ Modify `app.rb` to print a different message, and verify that the change is dete
 
 Deploy to Heroku
 ----------------
-Heroku is a cloud platform-as-a-service (PaaS) where we can deploy our Sinatra (and later Rails) applications in a more robust way than via Cloud9. If you don't have an account yet, go sign up at http://www.heroku.com. You'll need your login and password for the next step.
+Heroku is a cloud platform-as-a-service (PaaS) where we can deploy our Sinatra (and later Rails) applications. If you don't have an account yet, go sign up at http://www.heroku.com. You'll need your login and password for the next step.
 
-If using Cloud9, update your Heroku Toolbelt installation by typing the following command:
+You will need to install the Heroku Toolbelt. Go to `https://devcenter.heroku.com/articles/heroku-command-line` and follow the instructions on how to install the toolbelt that correspond to your host operating system.
 
-```
-$ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-```
-
-Log in to your Heroku account by typing the command: `heroku login` in the Cloud9 terminal. This will connect your Cloud9 workspace to your Heroku account.
+Next, you must log in to your Heroku account by typing the command `heroku login`. This will connect your workspace to your Heroku account.
 
 While in the root directory of your project (not your whole workspace), type `heroku create` to create a new project in Heroku. This will tell the Heroku service to prepare for some incoming code, and locally on Cloud9, it will add a remote git repository for you called `heroku`.
 
@@ -271,7 +267,7 @@ web: bundle exec rackup config.ru -p $PORT
 
 This tells Heroku to start a single web worker (Dyno) using essentially the same command line you used to start Rack locally. Note that in some cases, a `Procfile` is not necessary since Heroku can infer from your files how to start the app. However, it's always better to be explicit.
 
-Your local Cloud9 repo is now ready to deploy to Heroku:
+Your sinatra project is now ready to deploy to Heroku:
 
 ```
 $ git push heroku master
@@ -282,8 +278,9 @@ pushing to.  We'll learn about branches later in the course, but for
 now, suffice it to say that you can only deploy to the `master` branch
 on Heroku.)
 This push will create a running instance of your app at some URL ending
-with `herokuapp.com`. Enter that URL in a new browser tab (not in the
-Cloud9 IDE) to see your app running live. Congratulations, you did
+with `herokuapp.com`. Run the command `heroku open`, which would open
+a new Brower tab with the URL that corresponds to your application
+running in Heroku. Congratulations, you did
 it--your app is live!
 
 Summary
