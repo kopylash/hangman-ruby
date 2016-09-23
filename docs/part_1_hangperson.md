@@ -117,6 +117,20 @@ that does just that.  Use the following command to verify that the Web
 service actually works this way. Run it several times to verify that you
 get different words.
 
+WINDOWS 10 USERS (PowerShell):
+----
+```
+curl -Method POST -Body '' -Uri http://watchout4snakes.com/wo4snakes/Random/RandomWord
+```
+
+According to the line above, a `POST` verb is used (with an empty request body) to request
+a new random word from the RESTful service found at the URL metioned above.
+If the command works fine, you will see a different word in line starting with "Content"
+every time you run the same command.
+
+LINUX & Mac OSX USERS:
+----
+
 ```
 $ curl --data '' http://watchout4snakes.com/wo4snakes/Random/RandomWord
 ```
